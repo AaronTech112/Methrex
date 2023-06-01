@@ -106,6 +106,7 @@
   <!-------------------- End of hero section -------------------------->
   
   <!----------------- procedure section -------------------->
+
   <!-- <h2 class="procedure-header">For Homie</h2> -->
   <section class="procedures"> 
     <div class="procedures-container" style="background-color: black;">
@@ -143,11 +144,56 @@
             </p>
           </div>
         </div>
-        <img src="assets/images/phone.png" alt="">
+        <img class="phone-image"src="assets/images/phone.png" alt="">
       </div>
     </div>
     <h1 class="watermark">Methrex.</h1>
   </section>
+
+  
+<style>
+.procedures {
+    position: relative;
+  }
+  
+  .phone-image {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+    transition: transform 1s ease-out;
+  }
+  
+  .phone-image.float-up {
+    transform: translate(0%, -20%);
+  }
+  
+  .phone-image.float-down {
+    transform: translate(0%, 1%);
+  }
+  </style>
+  <script>
+    // Get the phone image element
+  var phoneImage = document.querySelector('.phone-image');
+  
+  // Listen for scroll event
+  window.addEventListener('scroll', function() {
+    // Check if scrolling up or down
+    if (this.oldScroll > this.scrollY) {
+      // Scrolling up
+      phoneImage.classList.remove('float-down');
+      phoneImage.classList.add('float-up');
+    } else {
+      // Scrolling down
+      phoneImage.classList.remove('float-up');
+      phoneImage.classList.add('float-down');
+    }
+  
+    // Store the current scroll position
+    this.oldScroll = this.scrollY;
+  });
+  
+  </script>
   <!----------------- Methrex description section -------------------->
 
   <section class="homebuka-description" style="background-color:black">
